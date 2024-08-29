@@ -27,6 +27,7 @@ Example 2
 ```python
 MATCH(kenau_n1:Person{name: "Keanu Reeves"}), (matrix_n2:Movie{title: "The Matrix"}) CREATE(kenau_n1)-[:ACTED_IN]->(matrix_n2)
 ```
+`kenau_n1` & `matrix_n2` just a temporary node to mention in the `CREATE` keyword
 </details>
 
 <details>
