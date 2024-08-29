@@ -23,6 +23,10 @@ This section contains how to use and commands will be there for `neo4j` the lang
 ```python
 MATCH(Robert:Person{name: "Robert Downey Jr"}), (ironman:Movie{title: "Iron Man"}) CREATE(Robert)-[:ACTED_IN]->(ironman);
 ```
+Example 2
+```python
+MATCH(kenau_n1:Person{name: "Keanu Reeves"}), (matrix_n2:Movie{title: "The Matrix"}) CREATE(kenau_n1)-[:ACTED_IN]->(matrix_n2)
+```
 </details>
 
 <details>
