@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  neo4j:
+    image: neo4j:5.12
+    container_name: neo4j
+    environment:
+      - NEO4J_AUTH=neo4j/Test@12345 # Username:Password, replace 'test' with your preferred password
+    ports:
+      - "7474:7474" # HTTP access
+      - "7687:7687" # Bolt protocol access
+    volumes:
+      - ./data:/data  # persist data on host machine
+      - ./logs:/logs  # persist logs on host machine
+      - ./import:/import  # for importing data to Neo4j
+      - ./plugins:/plugins  # plugin directory
