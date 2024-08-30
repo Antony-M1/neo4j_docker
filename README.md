@@ -27,7 +27,7 @@ GROQ_API_KEY=<YOUR_KEY>
 ```
 docker compose up -d
 ```
-```
+```python
 NEO4J_URI = "neo4j://0.0.0.0:7687"
 NEO4J_USERNAME = "neo4j"
 NEO4J_PASSWORD = "Test@12345"
