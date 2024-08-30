@@ -2,15 +2,22 @@ version: '3.8'
 
 services:
   neo4j:
-    image: neo4j:5.12
-    container_name: neo4j
+    image: neo4j:latest  # Use the Neo4j 4.0 image
+    container_name: neo4j-apoc
     environment:
-      - NEO4J_AUTH=neo4j/Test@12345 # Username:Password, replace 'test' with your preferred password
+      NEO4J_AUTH: "neo4j/Test@12345"  # Set your username and password
+      NEO4J_apoc_export_file_enabled: "true"  # Enable APOC file export
+      NEO4J_apoc_import_file_enabled: "true"  # Enable APOC file import
+      NEO4J_apoc_import_file_use__neo4j__config: "true"  # Use Neo4j config for file import paths
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*"  # Enable unrestricted APOC procedures
+      NEO4J_dbms_security_procedures_allowlist: "apoc.meta.*,apoc.schema.*"  # Allow specific APOC procedures
+      NEO4JLABS_PLUGINS: '["apoc"]'  # Specify APOC plugin
     ports:
-      - "7474:7474" # HTTP access
-      - "7687:7687" # Bolt protocol access
+      - "7474:7474"  # HTTP Neo4j port
+      - "7687:7687"  # Bolt port for Neo4j
     volumes:
-      - ./data:/data  # persist data on host machine
-      - ./logs:/logs  # persist logs on host machine
-      - ./import:/import  # for importing data to Neo4j
-      - ./plugins:/plugins  # plugin directory
+      - ./data:/data  # Persist data on host machine
+      - ./logs:/logs  # Persist logs on host machine
+      - ./import:/import  # For importing data to Neo4j
+      - ./plugins:/plugins  # Plugin directory
+    restart: unless-stopped
