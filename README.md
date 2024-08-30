@@ -10,3 +10,15 @@ Neo4j is a `graph database management system` developed by `Neo4j Inc`. The data
 **Reference Link**
 * [neo4j dockerhub](https://hub.docker.com/_/neo4j)
 * [Get Started With Neo4j - Cloud Free](https://neo4j.com/docs/getting-started/get-started-with-neo4j/)
+
+
+# Docker Local Setup
+
+```
+docker compose up -d
+```
+```
+NEO4J_URI = "neo4j://0.0.0.0:7687"
+NEO4J_USERNAME = "neo4j"
+NEO4J_PASSWORD = "Test@12345"
+```
